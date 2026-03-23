@@ -89,10 +89,18 @@
         .webapp-card {
             display: grid; grid-template-columns: 45% 55%; background: white;
             box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); overflow: hidden; transition: transform 0.3s ease;
+            align-items: center; /* Centers the content next to the square image */
         }
         .webapp-card:hover { transform: translateY(-5px); }
 
-        .project-preview { position: relative; background-color: #000; height: 400px; }
+        /* FIXED RATIO 1:1 (1500x1500px) */
+        .project-preview { 
+            position: relative; 
+            background-color: #000; 
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            overflow: hidden;
+        }
         .project-preview img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
 
         .project-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
