@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelia Manda | Projects | Web & App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Reset & Typography */
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0;
+            font-family: "Roboto", sans-serif;
+            font-size: 16px; color: #333;
+            background-color: #E0E2DF; line-height: 1.6;
+        }
+
+        h1, h2, h3, a, th { font-family: "Playfair Display", serif; }
+
+        a, a:visited, a:active {
+            text-decoration: none;
+            color: inherit; 
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px; margin: 0 auto;
+            background-color: #E0E2DF; min-height: 100vh;
+        }
+
+        /* Navigation Area */
+        header {
+            display: grid;
+            grid-template-columns: 30% 70%;
+            align-items: center;
+            background-color: #DDBDBE;
+            padding: 17px 60px;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .logo { 
+            font-family: "Playfair Display", serif;
+            font-size: 1.5em; letter-spacing: 1px; color: #655C5B; 
+        }
+
+        nav ul { list-style: none; padding: 0; margin: 0; text-align: right; }
+        nav li { display: inline-block; margin-left: 40px; position: relative; vertical-align: middle; }
+        nav a { color: #655C5B !important; font-size: 1.1em; display: inline-block; padding: 10px 0; }
+        nav a:hover { color: white !important; cursor: pointer; }
+
+        /* Highlights 'Projects' as active parent */
+        nav > ul > li:nth-child(3) > a { color: white !important; }
+
+        .dropdown-content {
+            display: none; position: absolute; background-color: #DDBDBE; 
+            min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100; text-align: left; padding: 10px 0; top: 100%; left: 0; margin-top: -5px;
+        }
+
+        .dropdown-content li { display: block; margin: 0; }
+        .dropdown-content a { color: #655C5B !important; padding: 12px 20px; display: block; font-size: 1.1em; font-family: "Playfair Display", serif; font-weight: 400; }
+        
+        /* Highlights 'Web and App' in white for this specific page */
+        .dropdown-content li:nth-child(3) a { color: white !important; }
+        
+        .dropdown-content a:hover { background-color: #E0E2DF; color: #816B6E !important; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .back-button {
+            display: inline-block; padding: 12px 30px; font-size: 1em; background-color: #C99B9B;
+            color: white !important; font-weight: bold; transition: all 0.4s ease;
+            margin-left: 80px; margin-top: 20px; margin-bottom: 5px;
+        }
+        .back-button:hover { background-color: #816B6E; transform: rotate(-2deg); }
+
+        .page-title {
+            text-align: center; color: #816B6E; font-size: 4.5em; margin: 0px 0 60px 0;
+            text-transform: uppercase; letter-spacing: 2px; font-weight: 700;
+        }
+
+        .webapp-deep-grid {
+            display: grid; grid-template-columns: 1fr; gap: 60px; padding: 0 80px 100px 80px;
+        }
+
+        .webapp-card {
+            display: grid; grid-template-columns: 45% 55%; background: white;
+            box-shadow: 15px 15px 0px rgba(101, 92, 91, 0.1); overflow: hidden; transition: transform 0.3s ease;
+        }
+        .webapp-card:hover { transform: translateY(-5px); }
+
+        .project-preview { position: relative; background-color: #000; height: 400px; }
+        .project-preview img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+
+        .project-info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .project-tag { color: #C99B9B; font-weight: 900; text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; margin-bottom: 10px; }
+        .project-info h2 { font-size: 2.8em; color: #816B6E; margin: 0 0 15px 0; line-height: 1.1; }
+        .project-meta { font-style: italic; color: #655C5B; margin-bottom: 20px; font-size: 1em; }
+        .project-desc { font-family: "Roboto", sans-serif; color: #5D4F51; margin-bottom: 30px; font-size: 1.05em; }
+
+        .view-project-btn {
+            align-self: flex-start; padding: 12px 35px; border: 2px solid #816B6E;
+            color: #816B6E !important; font-weight: bold; text-transform: uppercase;
+            letter-spacing: 1px; transition: all 0.3s ease;
+        }
+        .view-project-btn:hover { background-color: #816B6E; color: white !important; transform: rotate(-1deg); }
+
+        footer { text-align: center; padding: 40px; color: #655C5B; font-size: 0.9em; border-top: 1px solid #DDBDBE; }
+        .footer-table-wrapper { display: flex; justify-content: center; margin-bottom: 20px; }
+        .footer-table { border-collapse: collapse; text-align: left; }
+        .footer-table th { color: #816B6E; padding: 5px 10px; font-size: 1.1em; }
+        .footer-table td { padding: 5px 0; font-family: "Roboto", sans-serif; white-space: nowrap; }
+        .footer-table th:not(:first-child) { padding-left: 30px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Cornelia Manda</div>
+            <nav>
+                <ul>
+                    <li><a href="https://cornelia-manda.github.io/home/">Home</a></li>
+                    <li><a href="https://cornelia-manda.github.io/portfolio/">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="https://cornelia-manda.github.io/projects/">Projects</a>
+                        <ul class="dropdown-content">
+                            <li><a href="https://cornelia-manda.github.io/videography/">Videography</a></li>
+                            <li><a href="https://cornelia-manda.github.io/branding/">Branding</a></li>
+                            <li><a href="https://cornelia-manda.github.io/web-app/">Web and App</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://cornelia-manda.github.io/contact-aboutme/">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <a href="https://cornelia-manda.github.io/projects/" class="back-button">← Back to Projects</a>
+
+        <h1 class="page-title">WEB & APP</h1>
+
+        <main class="webapp-deep-grid">
+            
+            <section class="webapp-card">
+                <div class="project-preview">
+                    <img src="BudgetBunny-cover.png" alt="BudgetBunny App interface preview">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">UI/UX Design | Web & App | 2025</span>
+                    <h2>BudgetBunny App</h2>
+                    <p class="project-meta">Role: UI/UX Designer, Researcher, Interaction Designer</p>
+                    <p class="project-desc">A financial companion for university students designed to demystify OSAP, track hidden costs, and promote literacy without the guilt of a traditional calculator.</p>
+                    <a href="https://cornelia-manda.github.io/budget-bunny/" class="view-project-btn">View Detailed Project</a>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="footer-table-wrapper">
+                <table class="footer-table">
+                    <tr>
+                        <th>Email:</th>
+                        <td><a href="mailto:cmanda@uwaterloo.ca">cmanda@uwaterloo.ca</a></td>
+                        <th>School:</th>
+                        <td><a href="https://uwaterloo.ca/stratford-school-of-interaction-design-and-business/global-business-and-digital-arts" target="_blank">University of Waterloo</a></td>
+                        <th>Location:</th>
+                        <td>Kitchener-Waterloo, Ontario</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="copyright">&copy; 2026 Cornelia Manda. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
